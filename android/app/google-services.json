@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "505897878264",
+    "firebase_url": "https://heartfile-health-financi-78ba7.firebaseio.com",
+    "project_id": "heartfile-health-financi-78ba7",
+    "storage_bucket": "heartfile-health-financi-78ba7.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:505897878264:android:76830bd7264d051482710d",
+        "android_client_info": {
+          "package_name": "org.heartfile.health_financer"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "505897878264-cltf9petb2j6l69g7b1vf7a0dmud4n0e.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB0Y0MW7dVRw0DpLJJiw-oHxIIpX6Yfkik"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "505897878264-cltf9petb2j6l69g7b1vf7a0dmud4n0e.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -41,12 +41,10 @@ class MyApp extends StatelessWidget {
         textTheme: ButtonTextTheme.primary,
       ),
       inputDecorationTheme: InputDecorationTheme(
-        
-        border: OutlineInputBorder(borderRadius: BorderRadius.circular(20))
-      ),
+          border: OutlineInputBorder(borderRadius: BorderRadius.circular(20))),
       cardTheme: CardTheme(
-        shape: RoundedRectangleBorder(borderRadius:BorderRadius.circular(8) )
-      ),
+          shape:
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(8))),
       appBarTheme: AppBarTheme(
         color: baseTheme.scaffoldBackgroundColor,
         iconTheme: baseTheme.iconTheme.copyWith(color: Colors.green[900]),

@@ -21,7 +21,7 @@ class _SignUpPageState extends State<SignUpPage> {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          'Sign Up ',
+          'Sign up ',
           style: Theme.of(context)
               .textTheme
               .title
@@ -43,6 +43,7 @@ class _SignUpPageState extends State<SignUpPage> {
                 Padding(
                   padding: const EdgeInsets.only(bottom:8),
                   child: TextField(
+                    style: GoogleFonts.raleway(color: Colors.black, fontSize: 22),
                     decoration: InputDecoration(
                       hintText: 'Enter a valid email to set as username',
                       labelText: 'Email',
@@ -64,6 +65,7 @@ class _SignUpPageState extends State<SignUpPage> {
                 Padding(
                   padding: const EdgeInsets.only(bottom: 8),
                   child: TextField(
+                    style: GoogleFonts.raleway(color: Colors.black, fontSize: 22),
                     decoration: InputDecoration(
                       border: localTheme.inputDecorationTheme.border,
                       hintText: 'Choose a password',
@@ -85,6 +87,7 @@ class _SignUpPageState extends State<SignUpPage> {
                   ),
                 ),
                 TextField(
+                  style: GoogleFonts.raleway(color: Colors.black, fontSize: 22),
                   decoration: InputDecoration(
                     border: localTheme.inputDecorationTheme.border,
                     hintText: 'enter Password once again...',
@@ -120,15 +123,15 @@ class _SignUpPageState extends State<SignUpPage> {
                   ),
                 ),
                 Container(
-                  width: double.infinity,
+                  width: 260,
                   height: 45.0,
                   padding: EdgeInsets.symmetric(
-                    horizontal: 24.0,
+                    horizontal: 2.0,
                   ),
                   child: RaisedButton(
                       color: Theme.of(context).primaryColor,
                       child: Text(
-                        'Sign up ',
+                        'SIGN UP',
                         style: localTheme.textTheme.button
                             .copyWith(color: Colors.white, fontSize: 20.0),
                       ),

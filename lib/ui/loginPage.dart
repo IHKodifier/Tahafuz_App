@@ -22,6 +22,7 @@ class _LoginPageState extends State<LoginPage> {
   Widget build(BuildContext context) {
     ThemeData localTheme = Theme.of(context);
     return Scaffold(
+      // backgroundColor: Theme.of(context).colorScheme.onPrimary,
       body: Container(
         child: Padding(
           padding: const EdgeInsets.all(20.0),
@@ -39,6 +40,7 @@ class _LoginPageState extends State<LoginPage> {
                 Padding(
                   padding: const EdgeInsets.only(bottom:8.0),
                   child: TextField(
+                    style: GoogleFonts.raleway(color: Colors.black, fontSize: 22),
                     decoration: InputDecoration(
                       hintText: 'Enter the email used to create the account',
                       labelText: 'Email',
@@ -60,6 +62,7 @@ class _LoginPageState extends State<LoginPage> {
                 Padding(
                   padding: const EdgeInsets.only(bottom:8.0),
                   child: TextField(
+                    style: GoogleFonts.raleway(color: Colors.black, fontSize: 22),
                     decoration: InputDecoration(
                       border: localTheme.inputDecorationTheme.border,
                       hintText: ' alWayS CASE sENsItivE!!',
@@ -86,12 +89,12 @@ class _LoginPageState extends State<LoginPage> {
                   child: Text('Account not verified\n Please try again',style: Theme.of(context).textTheme.caption.copyWith(color: Colors.red),),
                 ): Text(''),
                 Container(
-                  width: double.infinity,
+                  width: 260,
                   height: 45.0,
-                  padding: EdgeInsets.symmetric(horizontal: 24.0),
+                  padding: EdgeInsets.symmetric(horizontal: 2),
                   child: RaisedButton(
                       child: Text(
-                        'Login',
+                        'LOGIN',
                         style: localTheme.textTheme.button
                             .copyWith(color: Colors.white, fontSize: 20.0),
                       ),
@@ -117,17 +120,17 @@ class _LoginPageState extends State<LoginPage> {
                   height: 20.0,
                 ),
                 Container(
-                  width: double.infinity,
+                  width: 260,
                   height: 45.0,
                   padding: EdgeInsets.symmetric(
-                    horizontal: 24.0,
+                    horizontal: 2,
                   ),
                   child: RaisedButton(
                     color: Theme.of(context).primaryColor,
                     child: Text(
-                      'Sign up ',
+                      'SIGN UP ',
                       style: localTheme.textTheme.button
-                          .copyWith(color: Colors.white, fontSize: 20.0),
+                          .copyWith( fontSize: 20.0),
                     ),
                     onPressed: () {
                       Navigator.of(context).pushNamed('/signup');

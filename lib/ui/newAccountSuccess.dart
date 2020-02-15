@@ -27,7 +27,7 @@ class NewAccountSuccess extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.only(top:8),
                 child: RaisedButton(
-                    child: Text('LGIN TO CONTINUE '),
+                    child: Text('LOGIN TO CONTINUE '),
                     color: Theme.of(context).primaryColor,
                     onPressed: () {
                       Navigator.popAndPushNamed(context, '/login');

@@ -38,6 +38,7 @@ class _UserHomeState extends State<UserHome> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               Text('User Home', style: Theme.of(context).textTheme.display1),
+              SizedBox(height: 10,),
               RaisedButton(
                 color: Theme.of(context).primaryColor,
                 onPressed: () {

@@ -11,16 +11,16 @@ class TahafuzLogo extends StatelessWidget {
   Widget build(BuildContext context) {
     return Stack(
       children: <Widget>[
-        ClipRRect(
-          borderRadius: BorderRadius.circular(42.0),
-                  child: Container(width: 580.0,
-          height: 100.0,
-          child: Container(
-            color: Colors.transparent.withOpacity(0.1),
-            child: Image.network('https://images.fineartamerica.com/images/artworkimages/mediumlarge/2/pakistan-flag-jaime-enriquez.jpg',
-            fit: BoxFit.fill,),
-          ),),
-        ),
+        // ClipRRect(
+        //   borderRadius: BorderRadius.circular(42.0),
+        //           child: Container(width: 580.0,
+        //   height: 100.0,
+        //   child: Container(
+        //     color: Colors.transparent.withOpacity(0.1),
+        //     child: Image.network('https://images.fineartamerica.com/images/artworkimages/mediumlarge/2/pakistan-flag-jaime-enriquez.jpg',
+        //     fit: BoxFit.fill,),
+        //   ),),
+        // ),
         
         
         
@@ -34,7 +34,7 @@ class TahafuzLogo extends StatelessWidget {
               textStyle: Theme.of(context).textTheme.display1,
               fontSize: 112.0,
               fontWeight: FontWeight.bold,
-              color: Colors.white24,
+              color: Theme.of(context).primaryColor,
             ),
           ),
         ),

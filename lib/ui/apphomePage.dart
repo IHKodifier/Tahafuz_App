@@ -1,3 +1,4 @@
+import 'package:google_fonts/google_fonts.dart';
 import 'package:health_financer/packageLib.dart';
 import 'package:health_financer/ui/appDrawer.dart';
 // import 'package:health_financer/ui/bottomNavBar.dart';
@@ -65,12 +66,12 @@ class _AppHomePageState extends State<AppHomePage>
         // actionsIconTheme: Theme.of(context).iconTheme.copyWith(color: Colors.black),
         // backgroundColor: hhfScaffoldBackgroundLight,
         title: Text(
-          'Health Financer',
-          style: Theme.of(context)
-              .textTheme
-              .title
-              .copyWith(color: Theme.of(context).primaryColor),
-        ),
+            'Tahafuz',
+            style: GoogleFonts.nanumBrushScript(
+              textStyle: Theme.of(context).textTheme.display1,
+              fontSize: 48,
+              fontWeight: FontWeight.bold,
+              color: Theme.of(context).primaryColor,),),
         centerTitle: true,
       ),
       body: TabBarView(

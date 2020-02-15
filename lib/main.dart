@@ -36,6 +36,7 @@ class MyApp extends StatelessWidget {
 // set colors
 
       primaryColor: Colors.green.shade900,
+      accentColor: Colors.green.shade400,
       scaffoldBackgroundColor: Colors.white,
       buttonTheme: const ButtonThemeData().copyWith(
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(18)),

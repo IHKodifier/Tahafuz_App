@@ -90,7 +90,7 @@ class _SignUpPageState extends State<SignUpPage> {
                   style: GoogleFonts.raleway(color: Colors.black, fontSize: 22),
                   decoration: InputDecoration(
                     border: localTheme.inputDecorationTheme.border,
-                    hintText: 'enter Password once again...',
+                    hintText: 'enter password once again...',
                     hintStyle: localTheme.textTheme.subhead.copyWith(
                       fontSize: 16.0,
                       color: Colors.black54,

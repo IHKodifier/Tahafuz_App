@@ -23,11 +23,23 @@ class NewAccountSuccess extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
               Text('You have succesfully created an account for yourself ',style: Theme.of(context).textTheme.display1.copyWith(fontSize:22.0 ),),
-              SizedBox(height: 8.0,),
+              SizedBox(height: 12.0,),
+              ClipRRect(
+                borderRadius: BorderRadius.circular(150),
+                              child: Container(
+                  height: 180,
+                  width: 180,
+                  color: Theme.of(context).accentColor.withOpacity(0.4),
+                  child: Padding(padding: EdgeInsets.all(12),
+                child: Icon(Icons.done,
+                color: Theme.of(context).primaryColor,
+                size: 150,),),),
+              ),
+              SizedBox(height: 12.0,),
               Padding(
                 padding: const EdgeInsets.only(top:8),
                 child: RaisedButton(
-                    child: Text('LOGIN TO CONTINUE '),
+                    child: Text('PROCEED TO LOGIN '),
                     color: Theme.of(context).primaryColor,
                     onPressed: () {
                       Navigator.popAndPushNamed(context, '/login');

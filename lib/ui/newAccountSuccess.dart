@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:health_financer/packageLib.dart';
+import 'package:health_financer/widgets/TahafuzLogo.dart';
 
 class NewAccountSuccess extends StatelessWidget {
   @override
@@ -17,35 +18,63 @@ class NewAccountSuccess extends StatelessWidget {
       ),
       body: Center(
         child: Container(
-          width: 300.0,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
+          width: 350,
+          child: ListView(
             children: <Widget>[
-              Text('You have succesfully created an account for yourself ',style: Theme.of(context).textTheme.display1.copyWith(fontSize:22.0 ),),
-              SizedBox(height: 12.0,),
-              ClipRRect(
-                borderRadius: BorderRadius.circular(150),
-                              child: Container(
-                  height: 180,
-                  width: 180,
-                  color: Theme.of(context).accentColor.withOpacity(0.4),
-                  child: Padding(padding: EdgeInsets.all(12),
-                child: Icon(Icons.done,
-                color: Theme.of(context).primaryColor,
-                size: 150,),),),
+              Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: <Widget>[
+                  Padding(
+                    padding: const EdgeInsets.only(top:24.0,left: 16.0),
+                    child: Text(
+                      'You have succesfully created an account for yourself on  ',
+                      style: Theme.of(context)
+                          .textTheme
+                          .display1
+                          .copyWith(fontSize: 22.0),
+                    ),
+                  ),
+                  SizedBox(
+                    height: 12.0,
+                  ),
+                  TahafuzLogo(),
+                  SizedBox(
+                    height: 12.0,
+                  ),
+                  ClipRRect(
+                    borderRadius: BorderRadius.circular(150),
+                    child: Container(
+                      height: 180,
+                      width: 180,
+                      color: Theme.of(context).accentColor.withOpacity(0.4),
+                      child: Padding(
+                        padding: EdgeInsets.all(12),
+                        child: Icon(
+                          Icons.done,
+                          color: Theme.of(context).primaryColor,
+                          size: 150,
+                        ),
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    height: 12.0,
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(top: 8),
+                    child: RaisedButton(
+                        child: Text('PROCEED TO LOGIN '),
+                        color: Theme.of(context).primaryColor,
+                        onPressed: () {
+                          Navigator.popAndPushNamed(context, '/login');
+                        }),
+                  ),
+                  SizedBox(height: 100,),
+                ],
               ),
-              SizedBox(height: 12.0,),
-              Padding(
-                padding: const EdgeInsets.only(top:8),
-                child: RaisedButton(
-                    child: Text('PROCEED TO LOGIN '),
-                    color: Theme.of(context).primaryColor,
-                    onPressed: () {
-                      Navigator.popAndPushNamed(context, '/login');
-                    }),
-              )
             ],
+            
           ),
         ),
       ),

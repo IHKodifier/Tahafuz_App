@@ -42,7 +42,7 @@ class _LoginPageState extends State<LoginPage> {
                   child: TextField(
                     style: GoogleFonts.raleway(color: Colors.black, fontSize: 22),
                     decoration: InputDecoration(
-                      hintText: 'Enter the email used to create the account',
+                      hintText: 'email used to create Tahafuz account',
                       labelText: 'Email',
                       labelStyle: localTheme.textTheme.title.copyWith(
                         color: localTheme.primaryColor,

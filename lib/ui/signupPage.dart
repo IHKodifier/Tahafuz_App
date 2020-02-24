@@ -140,9 +140,9 @@ class _SignUpPageState extends State<SignUpPage> {
                           FirebaseAuth.instance
                               .createUserWithEmailAndPassword(
                                   email: _email, password: _password)
-                              .then((signedInUser) {
+                              .then((createdUser) {
                             UserManagement()
-                                .createNewUser(signedInUser, context);
+                                .createNewUser(createdUser, context);
                             Navigator.popAndPushNamed(
                                 context, '/newAccountSuccess');
                           }).catchError((e) {});

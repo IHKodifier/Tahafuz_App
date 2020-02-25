@@ -5,16 +5,16 @@ import 'package:health_financer/widgets/TahafuzLogo.dart';
 import 'dart:async';
 
 class LoginPage extends StatefulWidget {
-  bool retryLogin=false;
+  // bool retryLogin=false;
 
-  LoginPage({this.retryLogin});
+  LoginPage();
   @override
-  _LoginPageState createState() => _LoginPageState(retryLogin:this.retryLogin );
+  _LoginPageState createState() => _LoginPageState( );
 }
 
 class _LoginPageState extends State<LoginPage> {
-  _LoginPageState({this.retryLogin});
-  bool retryLogin;
+  _LoginPageState();
+  // bool retryLogin;
   String _email;
   String _password;
 
@@ -84,10 +84,7 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                 ),
                 SizedBox(height: 30.0),
-                (retryLogin)? Padding(
-                  padding: const EdgeInsets.all(16.0),
-                  child: Text('Account not verified\n Please try again',style: Theme.of(context).textTheme.caption.copyWith(color: Colors.red),),
-                ): Text(''),
+                 
                 Container(
                   width: 260,
                   height: 45.0,
@@ -106,7 +103,7 @@ class _LoginPageState extends State<LoginPage> {
                             .then((user) {
                           Navigator.of(context).popAndPushNamed('/appHome');
                         }).catchError((onError) {
-                          Navigator.of(context).pushReplacementNamed('/retryLogin');
+                          // Navigator.of(context).pushReplacementNamed('/retryLogin');
                         });
                       }),
                 ),

@@ -1,4 +1,5 @@
 import 'package:health_financer/packageLib.dart';
+import 'package:health_financer/services/userManagement.dart';
 import 'package:health_financer/ui/apphomePage.dart';
 import 'package:health_financer/ui/newAccountSuccess.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -11,16 +12,14 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        title: 'Health Financer',
+        title: 'Tahafuz',
         debugShowCheckedModeBanner: false,
-        home: LoginPage(
-          retryLogin: false,
-        ),
+        home: UserManagement().handleAuth(),
         routes: <String, WidgetBuilder>{
-          '/login': (BuildContext context) => LoginPage(retryLogin: false),
-          '/retryLogin': (BuildContext context) => LoginPage(
-                retryLogin: true,
-              ),
+          // '/login': (BuildContext context) => LoginPage(retryLogin: false),
+          // '/retryLogin': (BuildContext context) => LoginPage(
+                // retryLogin: true,
+              // ),
           '/appHome': (BuildContext context) => AppHomePage(),
           '/signup': (BuildContext context) => SignUpPage(),
           '/userHome': (BuildContext context) => UserHome(),

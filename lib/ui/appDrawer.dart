@@ -1,4 +1,6 @@
 import 'package:health_financer/packageLib.dart';
+import 'package:health_financer/services/userManagement.dart';
+import 'package:flutter/widgets.dart';
 
 class AppDrawer extends StatefulWidget {
   @override
@@ -30,7 +32,6 @@ class _AppDrawerState extends State<AppDrawer> {
             ),
             accountEmail: new Text('Kiosk579@Tahafuz.com.pk'),
           ),
-          
           new ListTile(
             title: new Text('About Page'),
             onTap: () {
@@ -40,6 +41,17 @@ class _AppDrawerState extends State<AppDrawer> {
               //     new MaterialPageRoute(
               //         builder: (BuildContext context) => new AboutPage()));
             },
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal:64.0, vertical: 32),
+            child: RaisedButton(
+              onPressed: () {
+                UserManagement().signOut();
+                Navigator.popAndPushNamed(context, '/login');
+              },
+              child: Text('Sign Out'),
+              color: Theme.of(context).primaryColor,
+            ),
           ),
         ],
       ),

@@ -1,7 +1,8 @@
-import 'package:health_financer/main.dart';
+// import 'package:health_financer/main.dart';
 import 'package:health_financer/packageLib.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:health_financer/ui/horizontal_list_View.dart';
 
 class UserHome extends StatefulWidget {
   @override
@@ -10,110 +11,79 @@ class UserHome extends StatefulWidget {
 
 class _UserHomeState extends State<UserHome> {
 //   List<HfCase> _cases;
-//   FirestoreService fireServ = new FirestoreService();
+
 //   StreamSubscription<QuerySnapshot> _caseStream;
 
-//   @override
-//   void initState() {
-//     super.initState();
-//     _cases = new List();
-//     // _caseStream?.cancel();
-//     _caseStream = fireServ.getCaseList().listen((QuerySnapshot snapshot) {
-//       final List<HfCase> caseList = snapshot.documents
-//           .map((documentsnapshot) => HfCase.fromMap(documentsnapshot.data))
-//           .toList();
-//       setState(() {
-//         _cases = caseList;
-//       });
-//     });
-//     // _caseStream.onData(build(context));
-//   }
+  @override
+  void initState() {
+    super.initState();
+    // _caseStream.onData(build(context));
+  }
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-        color: Theme.of(context).scaffoldBackgroundColor,
-        child: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              Text('User Home', style: Theme.of(context).textTheme.display1),
-              SizedBox(height: 10,),
-              RaisedButton(
-                color: Theme.of(context).primaryColor,
-                onPressed: () {
-                  FirebaseAuth.instance.signOut();
-                  Navigator.popAndPushNamed(context, '/login');
-                },
-                child: Padding(
-                  padding: const EdgeInsets.all(16.0),
-                  child: Text('Log out'),
-                ),
-              )
-            ],
-          ),
-        ));
-//     return StreamBuilder(
-//         stream: Firestore.instance.collection('Cases').snapshots(),
+    return StreamBuilder(
+        stream: Firestore.instance.collection('Cases').snapshots(),
+        builder: (context, snapshot) {
+          if (!snapshot.hasData) {
+            return buildProgressIndicator(context);
+          } else {
+            return ListView(
+              children: <Widget>[
+                SizedBox(height: 5),
+                buildHorizontalListView('New and Un -Acknowleged',
+                    'Cases that await Doctor\'s Acknowledgment'),
+                buildHorizontalListView('Recently Acknowleged',
+                    'Cases thar are recently acknowledged by the Doctor'),
+                buildHorizontalListView('Awaiting assessment',
+                    'Cases that await \"inclusion/exclusion evaluations\"'),
+                buildHorizontalListView('Recently assessed',
+                    'Caes that have recently been evaluated for \"inclusion/exclusion\"'),
+                buildHorizontalListView('Recently Approved',
+                    'eligible for inclusion in Tahafuz Program'),
+                buildHorizontalListView('Awaiting procedure', ''),
+                buildHorizontalListView(
+                    'Awaiting follow up & documentation', ''),
+                buildHorizontalListView('Recently Approved', ''),
+              ],
+            );
+          }
+        });
+  }
 
-//         builder: (context, snapshot) {
-//           if (!snapshot.hasData) {
-//             return Center(
-//               child: Column(
-//                 mainAxisAlignment: MainAxisAlignment.center,
-//                 children: <Widget>[
-//                   CircularProgressIndicator(),
-//                   Text('...Loading Data...'),
-//                   Text('Please wait...')
-//                 ],
-//               ),
-//             );
-//           } else {
-//             return Padding(
-//                 padding: const EdgeInsets.all(8.0),
-//                 child: ListView.builder(
-//                   itemCount: snapshot.data.documents.length,
-//                   itemBuilder: (context, index) {
-//                     DocumentSnapshot _myCase = snapshot.data.documents[index];
-//                     String _casetitle = _myCase['caseTitle'];
-//                     return Material(
-//                       elevation: 15.0,
-//                         color: Colors.white70,
-//                         child: Padding(
-//                         padding: const EdgeInsets.all(8.0),
-//                         child: Container(
-//                           // decoration: BoxDecoration(color: Colors.teal,
-//                           // margin: EdgeInsets.only(bottom: 8.0),
-//                           child: ExpansionTile(
-//                               backgroundColor: Colors.red[50],
-//                               leading: CircleAvatar(
-//                                 child: Icon(Icons.account_circle, size: 40.0),
-//                               ),
-//                               title: Column(
-//                                 children: <Widget>[
-//                                   SizedBox(height: 10.0),
-//                                   Text(_casetitle,
-//                                       style: Theme.of(context)
-//                                           .textTheme
-//                                           .title
-//                                           .copyWith(fontSize: 16.0)),
-//                                 ],
-//                               ),
-//                               children: <Widget>[
-//                                 Text('text goes here',
-//                                     style: Theme.of(context).textTheme.title),
-//                                 Text('text goes here',
-//                                     style: Theme.of(context).textTheme.title),
-//                                 CircleAvatar(
-//                                   child: Icon(Icons.account_circle, size: 40.0),
-//                                 ),
-//                               ]),
-//                         ),
-//                       ),
-//                     );
-//                   },
-//                 ));
-//           }
-//         });
+  Container buildHorizontalListView(String title, String description) {
+    return Container(
+      height: 300,
+      width: 220,
+      child: Padding(
+        padding: const EdgeInsets.only(top: 8.0, left: 8),
+        child: HorizontalListView(
+          title: title,
+          description: description,
+        ),
+      ),
+      // color: Colors.yellow,
+    );
+  }
+
+  Center buildProgressIndicator(BuildContext context) {
+    return Center(
+      child: Container(
+        height: 350,
+        child: Column(
+          children: <Widget>[
+            CircularProgressIndicator(),
+            Text(
+              '...Loading Data...',
+              style: Theme.of(context)
+                  .textTheme
+                  .headline
+                  .copyWith(fontSize: 22, fontStyle: FontStyle.italic),
+            ),
+            Text('Please wait...'),
+          ],
+        ),
+      ),
+    );
   }
 }

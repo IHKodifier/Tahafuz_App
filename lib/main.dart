@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         home: UserManagement().handleAuth(),
         routes: <String, WidgetBuilder>{
-          // '/login': (BuildContext context) => LoginPage(retryLogin: false),
+          '/login': (BuildContext context) => LoginPage(),
           // '/retryLogin': (BuildContext context) => LoginPage(
                 // retryLogin: true,
               // ),

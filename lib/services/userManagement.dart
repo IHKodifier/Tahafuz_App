@@ -1,12 +1,8 @@
-// import 'dart:js';
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-
 import 'package:flutter/widgets.dart';
 import 'package:health_financer/packageLib.dart';
 import 'package:health_financer/ui/apphomePage.dart';
-// import '';
 
 class UserManagement {
   createNewUser(AuthResult authResult, context) {

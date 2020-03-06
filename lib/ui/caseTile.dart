@@ -1,4 +1,5 @@
 import 'dart:ffi';
+import 'dart:math';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:health_financer/packageLib.dart';
@@ -13,6 +14,8 @@ class CaseTile extends StatefulWidget {
 class _CaseTileState extends State<CaseTile> {
   @override
   Widget build(BuildContext context) {
+    String _photoUrl = 'http://i.pravatar.cc/';
+    _photoUrl += Random().nextInt(400).toString();
     return InkWell(
       splashColor: Theme.of(context).accentColor,
       onTap: () {},
@@ -35,13 +38,19 @@ class _CaseTileState extends State<CaseTile> {
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.start,
             children: <Widget>[
-              ClipRRect(
-                borderRadius: BorderRadius.circular(25),
-                child: Container(
-                  height: 100,
-                  width: 200,
-                  child: Image.network('http://i.pravatar.cc/310',fit: BoxFit.contain,),
-                  
+              Padding(
+                padding: const EdgeInsets.only(top:8,bottom: 8),
+                child: ClipRRect(
+                               borderRadius: BorderRadius.circular(50),
+                                child: Container(
+                    height:100,
+                    width: 100,
+                    child: Image.network(
+                      _photoUrl,
+                      height: 100,
+                      fit: BoxFit.scaleDown,
+                    ),
+                  ),
                 ),
               ),
               Padding(
@@ -51,20 +60,26 @@ class _CaseTileState extends State<CaseTile> {
                   children: <Widget>[
                     Text(
                       widget.docsnap.data['caseTitle'],
-                      style: Theme.of(context).textTheme.title.copyWith(fontSize: 16),
+                      style: Theme.of(context)
+                          .textTheme
+                          .title
+                          .copyWith(fontSize: 16),
                     ),
                     Padding(
-                      padding: const EdgeInsets.symmetric(horizontal:4.0),
+                      padding: const EdgeInsets.symmetric(horizontal: 4.0),
                       child: Text(
                         widget.docsnap.data['nokType'],
-                        style: Theme.of(context)
-                            .textTheme
-                            .subtitle
-                            .copyWith(fontSize: 12,fontStyle: FontStyle.italic),
+                        style: Theme.of(context).textTheme.subtitle.copyWith(
+                            fontSize: 12, fontStyle: FontStyle.italic),
                       ),
                     ),
-                    Text(widget.docsnap.data['nokTitle'],
-                        style: Theme.of(context).textTheme.title.copyWith(fontSize: 16),)
+                    Text(
+                      widget.docsnap.data['nokTitle'],
+                      style: Theme.of(context)
+                          .textTheme
+                          .title
+                          .copyWith(fontSize: 16),
+                    )
                   ],
                 ),
               ),
